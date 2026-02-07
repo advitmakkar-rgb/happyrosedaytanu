@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Rose Day, Tanu 🌸</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&family=Sacramento&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #4a4a4a;
+            overflow-x: hidden;
+            background: #fff5f7;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(135deg, #ffc9d9 0%, #ffe5ec 50%, #fff0f3 100%);
+            overflow: hidden;
+            padding: 2rem;
+        }
+        
+        .petal {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(ellipse at center, #ffb3c6 0%, #ff91ad 100%);
+            border-radius: 50% 0 50% 0;
+            opacity: 0.7;
+            animation: fall linear infinite;
+        }
+        
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .hero-content {
+            text-align: center;
+            z-index: 10;
+            animation: fadeInUp 1.2s ease-out;
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            color: #d63384;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .subheading {
+            font-size: clamp(1rem, 3vw, 1.4rem);
+            color: #8b5a7d;
+            max-width: 700px;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Main Message Card */
+        .message-section {
+            padding: 5rem 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #fff;
+        }
+        
+        .message-card {
+            background: linear-gradient(135deg, #fff0f3 0%, #ffffff 100%);
+            padding: 3rem 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(214, 51, 132, 0.15);
+            max-width: 700px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        
+        .message-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .message-card p {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: #d63384;
+            line-height: 1.8;
+            font-style: italic;
+        }
+        
+        /* Why You Section */
+        .why-you-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(180deg, #fff 0%, #fff5f7 100%);
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: #d63384;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-weight: 600;
+        }
+        
+        .reasons-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .reason-item {
+            background: #ffffff;
+            padding: 1.8rem 2rem;
+            margin-bottom: 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid #ffb3c6;
+            box-shadow: 0 5px 20px rgba(214, 51, 132, 0.08);
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.5s ease;
+        }
+        
+        .reason-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .reason-item:before {
+            content: '🌸';
+            margin-right: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .reason-item p {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: #6b4c5e;
+            line-height: 1.6;
+            display: inline;
+        }
+        
+        /* Interactive Surprise */
+        .surprise-section {
+            padding: 5rem 2rem;
+            text-align: center;
+            background: #fff;
+        }
+        
+        .surprise-btn {
+            background: linear-gradient(135deg, #ff91ad 0%, #d63384 100%);
+            color: white;
+            padding: 1.2rem 3rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            box-shadow: 0 8px 25px rgba(214, 51, 132, 0.3);
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+        
+        .surprise-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(214, 51, 132, 0.4);
+        }
+        
+        .surprise-btn:active {
+            transform: translateY(-1px);
+        }
+        
+        .surprise-message {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, #fff0f3 0%, #ffffff 100%);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(214, 51, 132, 0.15);
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            pointer-events: none;
+        }
+        
+        .surprise-message.revealed {
+            opacity: 1;
+            transform: scale(1);
+            pointer-events: auto;
+        }
+        
+        .surprise-message p {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            color: #d63384;
+            line-height: 1.8;
+            font-style: italic;
+        }
+        
+        /* Final Section */
+        .final-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #ffc9d9 0%, #ffe5ec 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .final-section:before {
+            content: '🌷';
+            position: absolute;
+            font-size: 8rem;
+            opacity: 0.1;
+            top: 10%;
+            left: 10%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .final-section:after {
+            content: '🌺';
+            position: absolute;
+            font-size: 8rem;
+            opacity: 0.1;
+            bottom: 10%;
+            right: 10%;
+            animation: float 6s ease-in-out infinite 3s;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        .closing-text {
+            font-family: 'Sacramento', cursive;
+            font-size: clamp(1.8rem, 5vw, 3.5rem);
+            color: #d63384;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .message-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .reason-item {
+                padding: 1.5rem 1.2rem;
+            }
+            
+            .surprise-btn {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="petals-container" id="petalsContainer"></div>
+        <div class="hero-content">
+            <h1>Happy Rose Day, Tanu 🌸</h1>
+            <p class="subheading">Pink roses for you — because soft, rare, and quietly stunning suits you perfectly.</p>
+        </div>
+    </section>
+    
+    <!-- Main Message Card -->
+    <section class="message-section">
+        <div class="message-card" id="messageCard">
+            <p>"Roses are pink, lilies are calm, tulips are gentle — and somehow, Tanu, you are all of them in one."</p>
+        </div>
+    </section>
+    
+    <!-- Why You Section -->
+    <section class="why-you-section">
+        <h2 class="section-title">Why You Get the Flowers 🌷</h2>
+        <div class="reasons-container">
+            <div class="reason-item">
+                <p>"Because pink looks better when it belongs to you."</p>
+            </div>
+            <div class="reason-item">
+                <p>"Because calm and chaos somehow coexist beautifully in you."</p>
+            </div>
+            <div class="reason-item">
+                <p>"Because you make normal moments feel chosen."</p>
+            </div>
+            <div class="reason-item">
+                <p>"Because if flowers had favorites, they'd pick you."</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Interactive Surprise -->
+    <section class="surprise-section">
+        <button class="surprise-btn" id="surpriseBtn">Tap Gently, Tanu 🌸</button>
+        <div class="surprise-message" id="surpriseMessage">
+            <p>"This is me choosing you — today, tomorrow, and on all the days that don't come with flowers."</p>
+        </div>
+    </section>
+    
+    <!-- Final Section -->
+    <section class="final-section">
+        <p class="closing-text">Pink roses, lilies, tulips… and one Tanu — clearly the favorite.</p>
+    </section>
+    
+    <script>
+        // Create falling petals
+        const petalsContainer = document.getElementById('petalsContainer');
+        const petalCount = 30;
+        
+        for (let i = 0; i < petalCount; i++) {
+            const petal = document.createElement('div');
+            petal.className = 'petal';
+            petal.style.left = Math.random() * 100 + '%';
+            petal.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            petal.style.animationDelay = Math.random() * 10 + 's';
+            petalsContainer.appendChild(petal);
+        }
+        
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements
+        observer.observe(document.getElementById('messageCard'));
+        
+        document.querySelectorAll('.reason-item').forEach((item, index) => {
+            item.style.transitionDelay = `${index * 0.15}s`;
+            observer.observe(item);
+        });
+        
+        // Surprise button
+        const surpriseBtn = document.getElementById('surpriseBtn');
+        const surpriseMessage = document.getElementById('surpriseMessage');
+        
+        surpriseBtn.addEventListener('click', () => {
+            surpriseBtn.style.opacity = '0';
+            surpriseBtn.style.transform = 'scale(0.9)';
+            
+            setTimeout(() => {
+                surpriseBtn.style.display = 'none';
+                surpriseMessage.classList.add('revealed');
+            }, 300);
+        });
+    </script>
+</body>
+</html>
